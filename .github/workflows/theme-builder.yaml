@@ -35,4 +35,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{steps.previous_tag.outputs.tag}}
-          files: build
+          files: ./build/**/*
