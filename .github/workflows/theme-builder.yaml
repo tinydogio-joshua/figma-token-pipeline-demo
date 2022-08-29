@@ -10,3 +10,22 @@ jobs:
         run: |
           echo "Test Workflow Runner is Working."
           node -v
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: npm
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Packages
+        run: npm install
+      - name: Build Style Dictionary
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build
