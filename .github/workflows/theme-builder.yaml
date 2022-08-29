@@ -1,0 +1,12 @@
+name: Theme Builder
+
+on: [push]
+
+jobs:
+  test-workflow-runner:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Report Running
+        run: |
+          echo "Test Workflow Runner is Working."
+          node -v
