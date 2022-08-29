@@ -25,6 +25,7 @@ jobs:
       - name: Install Packages
         run: npm install
       - name: Build Style Dictionary
+        run: npx style-dictionary build
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
